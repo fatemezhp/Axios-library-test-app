@@ -1,4 +1,5 @@
-function Layout({ children }) {
+
+function Layout({ children , setLogin }) {
   return (
     <>
       <header
@@ -6,7 +7,7 @@ function Layout({ children }) {
        rounded-md px-5 py-4 font-bold items-center"
       >
         <h1 className="text-md text-">Axios Library Test</h1>
-        <p>React</p>
+        <button onClick={() => setLogin(true)}>Login</button>
       </header>
 
       {children}

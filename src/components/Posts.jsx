@@ -7,12 +7,13 @@ function Posts() {
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => setPosts(res.data));
+      .then((res) => setPosts(res.data)).catch(error => console.log(error))
   }, []);
   console.log(posts);
   return (
     <div>
       <h3 className="border-b-2 font-bold mb-3">Newest Posts</h3>
+      {!posts.length && <h3 className="font-bold text-red-600">You Are Not Connected To Internet!</h3>}
       <ul className="grid grid-cols-12 gap-1">
         {posts.map((post) => (
           <li
