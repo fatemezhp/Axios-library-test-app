@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import DeletePost from "./DeletePost";
-import PatchPost from "./PatchPost";
+import Put from "./Put";
+import Post from "./Post";
 
 // at the first  place we start our journy with GET (reading data)
 
-function Posts() {
+function Get() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
@@ -18,8 +19,8 @@ function Posts() {
     <div className="grid grid-cols-12 gap-8">
       <div className="col-span-3">
       <DeletePost  posts={posts} setPosts={setPosts} />
-      <PatchPost />
-
+      <Put posts={posts} setPosts={setPosts} />
+      <Post posts={posts} setPosts={setPosts} />
       </div>
     <div className="grid col-span-9">
       <h3 className="border-b-2 border-red-900 font-bold mb-3">
@@ -28,7 +29,7 @@ function Posts() {
       {!posts.length && (
         <h3 className="font-bold text-red-600">
           Is Loading...
-        </h3>
+        </h3>   
       )}
       <ul className="grid grid-cols-12 gap-1">
         {Array.isArray(posts) && posts.map((post) => (
@@ -46,4 +47,4 @@ function Posts() {
   );
 }
 
-export default Posts;
+export default Get;

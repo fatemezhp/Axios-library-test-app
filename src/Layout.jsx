@@ -3,7 +3,7 @@ function Layout({ children , setLogin }) {
   return (
     <>
       <header
-        className=" bg-red-900 flex justify-between my-5
+        className=" bg-red-600 flex justify-between my-5
        rounded-md px-5 py-4 font-bold items-center"
       >
         <h1 className="text-md text-">Axios Library Test</h1>

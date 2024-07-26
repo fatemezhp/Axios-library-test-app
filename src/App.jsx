@@ -1,6 +1,6 @@
 // axios library is a new way to fetch data and easier to fetch ,and better performance
 import { useState } from "react";
-import Posts from "./components/Posts";
+import Get from "./components/Get";
 import Layout from "./Layout";
 import Login from "./components/Login";
 
@@ -10,7 +10,7 @@ function App() {
 
     !!login 
     ? <Login login={login} setLogin={setLogin} /> 
-    : <Layout setLogin={setLogin} > <Posts/> </Layout>
+    : <Layout setLogin={setLogin} > <Get/> </Layout>
  
   );
 }

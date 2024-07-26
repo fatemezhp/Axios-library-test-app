@@ -7,9 +7,9 @@ function DeletePost({setPosts , posts}) {
     axios
       .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((res) => {
-        // حذف پست از داده‌های محلی
         const updatedPosts = posts.filter(post => post.id !== parseInt(id));
         setPosts(updatedPosts);
+        setId("");
       })
       .catch((error) => {
         console.error("Error deleting post:", error);
