@@ -1,25 +1,30 @@
+import axios from "axios";
 import React, { useState } from "react";
-
+import styles from '../css/Login.module.css'
 function Login({login, setLogin}) {
   const [fullName, setFullName] = useState("");
   
+  const posetHandler = () => {
+    axios.post("https://jsonplaceholder.typicode.com/users", { title : fullName})
+    .then((res) => console.log(res))
+  }
   return (
-    <div className=" backdrop-blur-[3px] fixed top-0 left-0  w-full h-full bg-dark-400">
+    <div id={styles.Blur} className="fixed left-1/4 top-1/4  w-1/2 h-1/4">
 
       <span className="font-bold text-3xl m-5 cursor-pointer" onClick={() => setLogin(null)}> X </span>
 
-      <form className="flex absolute top-1/3 left-1/3">
-        <label htmlFor="fname">Enter you full name here :</label>
+      <div className="flex flex-col gap-3 p-8">
+    
         <input
           className="p-4 rounded"
           name="fname"
           type="fullName"
-          placeholder="your fullName..."
+          placeholder="Enter your fullName..."
           value={fullName}
           onChange={(event) => setFullName(event.target.value)}
         />
-        <button>submit</button>
-      </form>
+        <button onClick={posetHandler}>submit</button>
+      </div>
     </div>
   );
 }

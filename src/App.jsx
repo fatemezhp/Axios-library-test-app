@@ -8,9 +8,9 @@ function App() {
   const [login,setLogin] = useState(null)
   return (
 
-      !!login 
-      ? <Login login={login} setLogin={setLogin} /> 
-      : <Layout setLogin={setLogin} > <Posts/> </Layout>
+    !!login 
+    ? <Login login={login} setLogin={setLogin} /> 
+    : <Layout setLogin={setLogin} > <Posts/> </Layout>
  
   );
 }
